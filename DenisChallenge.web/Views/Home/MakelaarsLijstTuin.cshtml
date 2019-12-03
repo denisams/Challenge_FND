@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "MakelaarsLijstTuin";
+}
+    <h1>@ViewData["Title"]</h1>
+@{int i = 1; }
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#Id</th>
+            <th scope="col">Naam Makelaar</th>
+            <th scope="col">Kwantiteit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td>@item.MakelaarNaam</td>
+                <td>@item.Kwantiteit.ToString()</td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
