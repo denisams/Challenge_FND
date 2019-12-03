@@ -12,7 +12,7 @@ namespace DenisChallenge.Service
 {
     public class AanbodApi : IAanbodApi
     {
-        private dynamic GetPartnerApi(IConfiguration config, bool isTuin)
+        private dynamic GetPartnerApi(IConfiguration config, bool hasTuin)
         {
             using (var client = new HttpClient())
             {
@@ -28,22 +28,22 @@ namespace DenisChallenge.Service
                     baseURL +
                     $"{key}" +
                     $"/?type=koop&zo=/amsterdam" +
-                    (isTuin ? withTuin : string.Empty) +
+                    (hasTuin ? withTuin : string.Empty) +
                     $"/&page=1&pagesize=500").Result;
 
                 response.EnsureSuccessStatusCode();
-                string conteudo = response.Content.ReadAsStringAsync().Result;
+                string content = response.Content.ReadAsStringAsync().Result;
 
-                dynamic resultado = JsonConvert.DeserializeObject(conteudo);
+                dynamic result = JsonConvert.DeserializeObject(content);
 
-                return resultado;
+                return result;
             }
         }
 
-        private List<GroeperingsTabelViewModel> ConvertMakelaarsToTop(dynamic resultado)
+        private List<GroeperingsTabelViewModel> ConvertMakelaarsToTop(dynamic apiResult)
         {
             Aanbod aanbod = new Aanbod();
-            foreach (var item in resultado.Objects)
+            foreach (var item in apiResult.Objects)
             {
                 aanbod.EigenschapBeschrijving.Add(
                     new EigenschapBeschrijving
@@ -73,9 +73,9 @@ namespace DenisChallenge.Service
             return groeperingsTabelViewModel;
         }
 
-        public List<GroeperingsTabelViewModel> GetTopMakelaars(IConfiguration config, bool isTuin)
+        public List<GroeperingsTabelViewModel> GetTopMakelaars(IConfiguration config, bool hasTuin)
         {
-            var getMakelaars = GetPartnerApi(config, isTuin);
+            var getMakelaars = GetPartnerApi(config, hasTuin);
             var groeperingsTabelViewModel = ConvertMakelaarsToTop(getMakelaars);
 
             return groeperingsTabelViewModel;

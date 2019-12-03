@@ -8,9 +8,6 @@ namespace DenisChallenge.Domain.Entities
         [JsonProperty("AangebodenSindsTekst")]
         public string AangebodenSindsTekst { get; set; }
 
-        //[JsonProperty("AanmeldDatum")]
-        //public AanmeldDatum AanmeldDatum { get; set; }
-
         [JsonProperty("AantalBeschikbaar")]
         public object AantalBeschikbaar { get; set; }
 
@@ -20,17 +17,11 @@ namespace DenisChallenge.Domain.Entities
         [JsonProperty("AantalKavels")]
         public object AantalKavels { get; set; }
 
-        //[JsonProperty("Aanvaarding")]
-        //public Aanvaarding Aanvaarding { get; set; }
-
         [JsonProperty("Adres")]
         public string Adres { get; set; }
 
         [JsonProperty("Afstand")]
         public long Afstand { get; set; }
-
-        //[JsonProperty("BronCode")]
-        //public BronCode BronCode { get; set; }
 
         [JsonProperty("ChildrenObjects")]
         public object[] ChildrenObjects { get; set; }
@@ -125,9 +116,6 @@ namespace DenisChallenge.Domain.Entities
         [JsonProperty("Koopprijs")]
         public long Koopprijs { get; set; }
 
-        //[JsonProperty("KoopprijsFormaat")]
-        //public KoopprijsFormaat KoopprijsFormaat { get; set; }
-
         [JsonProperty("KoopprijsTot")]
         public long KoopprijsTot { get; set; }
 
@@ -155,9 +143,6 @@ namespace DenisChallenge.Domain.Entities
         [JsonProperty("Postcode")]
         public string Postcode { get; set; }
 
-        //[JsonProperty("Prijs")]
-        //public Prijs Prijs { get; set; }
-
         [JsonProperty("PrijsGeformatteerdHtml")]
         public string PrijsGeformatteerdHtml { get; set; }
 
@@ -167,17 +152,8 @@ namespace DenisChallenge.Domain.Entities
         [JsonProperty("PrijsGeformatteerdTextKoop")]
         public string PrijsGeformatteerdTextKoop { get; set; }
 
-        //[JsonProperty("Producten")]
-        //public Producten[] Producten { get; set; }
-
-        //[JsonProperty("Project")]
-        //public Project Project { get; set; }
-
         [JsonProperty("ProjectNaam")]
         public object ProjectNaam { get; set; }
-
-        //[JsonProperty("PromoLabel")]
-        //public PromoLabel PromoLabel { get; set; }
 
         [JsonProperty("PublicatieDatum")]
         public string PublicatieDatum { get; set; }
@@ -187,9 +163,6 @@ namespace DenisChallenge.Domain.Entities
 
         [JsonProperty("SavedDate")]
         public object SavedDate { get; set; }
-
-        //[JsonProperty("Soort-aanbod")]
-        //public SoortAanbod SoortAanbod { get; set; }
 
         [JsonProperty("SoortAanbod")]
         public long ObjectSoortAanbod { get; set; }
@@ -215,9 +188,6 @@ namespace DenisChallenge.Domain.Entities
         [JsonProperty("URL")]
         public Uri Url { get; set; }
 
-        //[JsonProperty("VerkoopStatus")]
-        //public VerkoopStatus VerkoopStatus { get; set; }
-
         [JsonProperty("WGS84_X")]
         public double Wgs84X { get; set; }
 
@@ -229,9 +199,6 @@ namespace DenisChallenge.Domain.Entities
 
         [JsonProperty("Woonoppervlakte")]
         public long Woonoppervlakte { get; set; }
-
-        //[JsonProperty("Woonplaats")]
-        //public Woonplaats Woonplaats { get; set; }
 
         [JsonProperty("ZoekType")]
         public long[] ZoekType { get; set; }
