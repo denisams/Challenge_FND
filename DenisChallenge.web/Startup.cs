@@ -20,13 +20,15 @@ namespace DenisChallenge.web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options => options.EnableEndpointRouting = false);
 
             services.AddScoped<IAanbodApi, AanbodApi>();
         }
@@ -46,6 +48,13 @@ namespace DenisChallenge.web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseRouting();
+            app.UseCors();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
             app.UseMvc(routes =>
             {
